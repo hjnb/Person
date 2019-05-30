@@ -1,0 +1,11 @@
+C:\Users\yoshi\AppData\Local\Temporary Projects\Person\bin\Release\Person.exe
+C:\Users\yoshi\AppData\Local\Temporary Projects\Person\bin\Release\Person.pdb
+C:\Users\yoshi\AppData\Local\Temporary Projects\Person\bin\Release\Person.xml
+C:\Users\yoshi\AppData\Local\Temporary Projects\Person\obj\x86\Release\Person.Resources.resources
+C:\Users\yoshi\AppData\Local\Temporary Projects\Person\obj\x86\Release\Person.vbproj.GenerateResource.Cache
+C:\Users\yoshi\AppData\Local\Temporary Projects\Person\obj\x86\Release\Person.exe
+C:\Users\yoshi\AppData\Local\Temporary Projects\Person\obj\x86\Release\Person.xml
+C:\Users\yoshi\AppData\Local\Temporary Projects\Person\obj\x86\Release\Person.pdb
+C:\Users\yoshi\documents\visual studio 2010\Projects\Person\Person\obj\x86\Release\Person.exe
+C:\Users\yoshi\documents\visual studio 2010\Projects\Person\Person\obj\x86\Release\Person.xml
+C:\Users\yoshi\documents\visual studio 2010\Projects\Person\Person\obj\x86\Release\Person.pdb
