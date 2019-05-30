@@ -6,7 +6,156 @@ Person
 </name>
 </assembly>
 <members>
-<member name="P:Person.My.Resources.Resources.ResourceManager">
+<member name="M:Person.Util.EnableDoubleBuffering(System.Windows.Forms.Control)">
+	<summary>
+ コントロールのDoubleBufferedプロパティをTrueにする
+ </summary>
+	<param name="control">対象のコントロール</param>
+</member><member name="M:Person.Util.checkDBNullValue(System.Object)">
+	<summary>
+ dgvのセルの値がNullかチェック、Nullの場合空文字を返す
+ </summary>
+	<param name="dgvCellValue"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Person.Util.convADStrToWarekiStr(System.String)">
+	<summary>
+ 西暦(yyyy/MM/dd)を和暦に変換
+ </summary>
+	<param name="adStr"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Person.Util.convWarekiStrToADStr(System.String)">
+	<summary>
+ 和暦を西暦に変換
+ </summary>
+	<param name="warekiStr"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Person.Util.getKanji(System.String)">
+	<summary>
+ 和暦の漢字を取得
+ </summary>
+	<param name="warekiStr"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Person.Util.getIniString(System.String,System.String,System.String)">
+	<summary>
+ iniファイルから読み込み
+ </summary>
+	<param name="lpSection">セクション名</param>
+	<param name="lpKeyName">読み込むkey名</param>
+	<param name="lpFileName">iniファイルパス</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Person.Util.putIniString(System.String,System.String,System.String,System.String)">
+	<summary>
+ iniファイルへ書き込み
+ </summary>
+	<param name="lpSection">セクション名</param>
+	<param name="lpKeyName">書き込む対象のkey名</param>
+	<param name="lpValue">書き込む値</param>
+	<param name="lpFileName">iniファイルパス</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Person.Util.calcAge(System.String,System.String)">
+	<summary>
+ 現在年齢算出
+ </summary>
+	<param name="birthYmd">生年月日(yyyy/MM/dd)</param>
+	<param name="nowYmd">現在日付(yyyy/MM/dd)</param>
+	<returns>年齢</returns>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.#ctor">
+	<summary>
+ コンストラクタ
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.TopForm_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+	<summary>
+ keyDownイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.TopForm_Load(System.Object,System.EventArgs)">
+	<summary>
+ loadイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.initSectListBox">
+	<summary>
+ 職種リストボックス初期設定
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.clearData">
+	<summary>
+ クリア
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.displayNamList(System.Boolean,System.String)">
+	<summary>
+ 氏名リスト表示
+ </summary>
+	<param name="exists">在職 or 退職</param>
+	<param name="sect">職種</param>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.displayPersonalData(System.String)">
+	<summary>
+ 個人情報表示
+ </summary>
+	<param name="selectedNam">氏名</param>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.sectListBox_SelectedValueChanged(System.Object,System.EventArgs)">
+	<summary>
+ 職種リストボックス値変更イベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.rbtnZai_CheckedChanged(System.Object,System.EventArgs)">
+	<summary>
+ ラジオボタン値変更イベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.namListBox_SelectedValueChanged(System.Object,System.EventArgs)">
+	<summary>
+ 氏名リスト値変更イベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.btnDown_Click(System.Object,System.EventArgs)">
+	<summary>
+ 下ボタンクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.btnUp_Click(System.Object,System.EventArgs)">
+	<summary>
+ 上ボタンクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.btnPrint_Click(System.Object,System.EventArgs)">
+	<summary>
+ 印刷ボタンクリックイベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Person.TopForm.initPrintState">
+	<summary>
+ 印刷ラジオボタン初期設定
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Person.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
