@@ -386,15 +386,26 @@ Public Class TopForm
         dataArray(8, 2) = "　　発行者"
         dataArray(8, 3) = mSyaLabel.Text
 
+        '画像パス(画像が表示されている場合のみ取得)
+        Dim imageFilePath As String = If(IsNothing(imageBox.Image), "", staffDirPath & "\" & namLabel.Text & ".JPG")
+
         'エクセル準備
         Dim objExcel As Excel.Application = CreateObject("Excel.Application")
         Dim objWorkBooks As Excel.Workbooks = objExcel.Workbooks
         Dim objWorkBook As Excel.Workbook = objWorkBooks.Open(excelFilePass)
         Dim oSheet As Excel.Worksheet = objWorkBook.Worksheets("個人票改")
+        Dim xlShapes As Excel.Shapes = DirectCast(oSheet.Shapes, Excel.Shapes)
         objExcel.Calculation = Excel.XlCalculation.xlCalculationManual
         objExcel.ScreenUpdating = False
 
+        'データ貼り付け
         oSheet.Range("D3", "G13").Value = dataArray
+
+        '画像ファイル
+        If System.IO.File.Exists(imageFilePath) Then
+            Dim cell As Excel.Range = DirectCast(oSheet.Cells(3, "B"), Excel.Range)
+            xlShapes.AddPicture(imageFilePath, False, True, cell.Left, cell.Top, 180, 140)
+        End If
 
         objExcel.Calculation = Excel.XlCalculation.xlCalculationAutomatic
         objExcel.ScreenUpdating = True
