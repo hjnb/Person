@@ -31,6 +31,7 @@ Public Class TopForm
 
         Me.StartPosition = FormStartPosition.CenterScreen
         Me.FormBorderStyle = FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.KeyPreview = True
     End Sub
 
