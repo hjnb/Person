@@ -74,8 +74,8 @@ Partial Class TopForm
         Me.taiLabel = New System.Windows.Forms.Label()
         Me.imageBox = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.rbtnPreview = New System.Windows.Forms.RadioButton()
         Me.rbtnPrint = New System.Windows.Forms.RadioButton()
+        Me.rbtnPreview = New System.Windows.Forms.RadioButton()
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -535,9 +535,9 @@ Partial Class TopForm
         '
         'imageBox
         '
-        Me.imageBox.Location = New System.Drawing.Point(122, 12)
+        Me.imageBox.Location = New System.Drawing.Point(127, 12)
         Me.imageBox.Name = "imageBox"
-        Me.imageBox.Size = New System.Drawing.Size(315, 245)
+        Me.imageBox.Size = New System.Drawing.Size(310, 245)
         Me.imageBox.TabIndex = 51
         Me.imageBox.TabStop = False
         '
@@ -550,17 +550,6 @@ Partial Class TopForm
         Me.Panel1.Size = New System.Drawing.Size(92, 48)
         Me.Panel1.TabIndex = 52
         '
-        'rbtnPreview
-        '
-        Me.rbtnPreview.AutoSize = True
-        Me.rbtnPreview.Location = New System.Drawing.Point(5, 6)
-        Me.rbtnPreview.Name = "rbtnPreview"
-        Me.rbtnPreview.Size = New System.Drawing.Size(63, 16)
-        Me.rbtnPreview.TabIndex = 0
-        Me.rbtnPreview.TabStop = True
-        Me.rbtnPreview.Text = "ﾌﾟﾚﾋﾞｭｰ"
-        Me.rbtnPreview.UseVisualStyleBackColor = True
-        '
         'rbtnPrint
         '
         Me.rbtnPrint.AutoSize = True
@@ -571,6 +560,17 @@ Partial Class TopForm
         Me.rbtnPrint.TabStop = True
         Me.rbtnPrint.Text = "印刷"
         Me.rbtnPrint.UseVisualStyleBackColor = True
+        '
+        'rbtnPreview
+        '
+        Me.rbtnPreview.AutoSize = True
+        Me.rbtnPreview.Location = New System.Drawing.Point(5, 6)
+        Me.rbtnPreview.Name = "rbtnPreview"
+        Me.rbtnPreview.Size = New System.Drawing.Size(63, 16)
+        Me.rbtnPreview.TabIndex = 0
+        Me.rbtnPreview.TabStop = True
+        Me.rbtnPreview.Text = "ﾌﾟﾚﾋﾞｭｰ"
+        Me.rbtnPreview.UseVisualStyleBackColor = True
         '
         'TopForm
         '
