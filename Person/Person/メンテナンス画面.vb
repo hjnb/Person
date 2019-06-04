@@ -1,4 +1,6 @@
 ﻿Imports System.Data.OleDb
+Imports Microsoft.Office.Interop
+Imports System.Runtime.InteropServices
 
 Public Class メンテナンス画面
 
@@ -64,6 +66,10 @@ Public Class メンテナンス画面
         If e.KeyCode = Keys.Enter Then
             If e.Control = False Then
                 Me.SelectNextControl(Me.ActiveControl, Not e.Shift, True, True, True)
+            End If
+        ElseIf e.KeyCode = Keys.Up AndAlso namBox.Focused = False Then
+            If e.Control = False Then
+                Me.SelectNextControl(Me.ActiveControl, e.Shift, True, True, True)
             End If
         End If
     End Sub
@@ -173,16 +179,21 @@ Public Class メンテナンス画面
 
         '列追加
         dt.Columns.Add("Image", GetType(String)) 'イメージ
-        dt.Columns.Add("Zai", GetType(String)) '在職期間
+        dt.Columns.Add("Zai", GetType(Integer)) '在職期間
         For Each row As DataRow In dt.Rows
             Dim nyu As String = Util.checkDBNullValue(row("Ymd1"))
             Dim tai As String = Util.checkDBNullValue(row("Ymd2"))
+            Dim nam As String = Util.checkDBNullValue(row("Nam"))
             If tai = "" Then
                 tai = DateTime.Now.ToString("yyyy/MM/dd")
             End If
             If nyu <> "" AndAlso tai <> "" Then
                 Dim age As Integer = Util.calcAge(nyu, tai)
-                row("Zai") = If(age <= 0, "", age)
+                row("Zai") = age
+            End If
+            Dim imageFilePath As String = TopForm.staffDirPath & "\" & nam & ".JPG" '画像ファイルパス
+            If System.IO.File.Exists(imageFilePath) Then
+                row("Image") = "有"
             End If
         Next
 
@@ -356,6 +367,9 @@ Public Class メンテナンス画面
         If e.RowIndex >= 0 AndAlso (columnName = "Birth" OrElse columnName = "Ymd1" OrElse columnName = "Ymd2" OrElse columnName = "NYmd1" OrElse columnName = "NYmd2" OrElse columnName = "KYmd1" OrElse columnName = "KYmd2" OrElse columnName = "MYmd") Then
             e.Value = Util.convADStrToWarekiStr(e.Value)
             e.FormattingApplied = True
+        ElseIf e.RowIndex >= 0 AndAlso columnName = "Zai" AndAlso e.Value <= 0 Then
+            e.Value = ""
+            e.FormattingApplied = True
         End If
     End Sub
 
@@ -430,10 +444,8 @@ Public Class メンテナンス画面
                 '画像を縮小して描画する
                 If dsp = "1" Then
                     g.DrawImage(image, 0, 0, 190, 140)
-                    'imageBox.Size = New Size(190, 140)
                 ElseIf dsp = "2" Then
                     g.DrawImage(image, 0, 0, 140, 190)
-                    'imageBox.Size = New Size(140, 190)
                 End If
 
                 'BitmapとGraphicsオブジェクトを破棄
@@ -617,7 +629,7 @@ Public Class メンテナンス画面
         rs.Open(sql, cn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic)
         If rs.RecordCount <= 0 Then
             '新規登録
-            rs.AddNew()        
+            rs.AddNew()
         End If
         rs.Fields("Nam").Value = nam
         rs.Fields("Kana").Value = kana
@@ -694,6 +706,118 @@ Public Class メンテナンス画面
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub btnPrint_Click(sender As System.Object, e As System.EventArgs) Handles btnPrint.Click
+        '件数
+        Dim rowsCount As Integer = dgvStaff.Rows.Count
 
+        '貼り付けデータ作成
+        Dim dataList As New List(Of String(,))
+        Dim dataArray(39, 11) As String
+        Dim arrayRowIndex As Integer = 0
+        For i As Integer = 0 To rowsCount - 1
+            If arrayRowIndex = 40 Then
+                dataList.Add(dataArray.Clone())
+                Array.Clear(dataArray, 0, dataArray.Length)
+                arrayRowIndex = 0
+            End If
+
+            'ｶﾅ
+            dataArray(arrayRowIndex, 0) = Util.checkDBNullValue(dgvStaff("Kana", i).Value)
+            '氏名
+            Dim nam As String = Util.checkDBNullValue(dgvStaff("Nam", i).Value)
+            dataArray(arrayRowIndex + 1, 0) = nam
+            '生年月日
+            dataArray(arrayRowIndex, 1) = Util.checkDBNullValue(dgvStaff("Birth", i).FormattedValue)
+            '年齢
+            Dim age As String = Util.checkDBNullValue(dgvStaff("Age", i).Value) & "歳"
+            Dim imageStr As String = ""
+            If Util.checkDBNullValue(dgvStaff("Image", i).Value) = "有" Then
+                imageStr = "　ｲﾒｰｼﾞ"
+            End If
+            dataArray(arrayRowIndex + 1, 1) = age & imageStr
+            '職種
+            dataArray(arrayRowIndex, 2) = Util.checkDBNullValue(dgvStaff("Sect", i).Value)
+            '備考
+            dataArray(arrayRowIndex + 1, 2) = Util.checkDBNullValue(dgvStaff("Text", i).Value)
+            '入職日
+            dataArray(arrayRowIndex, 3) = Util.checkDBNullValue(dgvStaff("Ymd1", i).FormattedValue)
+            '退職日
+            dataArray(arrayRowIndex + 1, 3) = Util.checkDBNullValue(dgvStaff("Ymd2", i).FormattedValue)
+            '電話1
+            dataArray(arrayRowIndex, 4) = Util.checkDBNullValue(dgvStaff("Tel1", i).Value)
+            '電話2
+            dataArray(arrayRowIndex + 1, 4) = Util.checkDBNullValue(dgvStaff("Tel2", i).Value)
+            '住所1
+            dataArray(arrayRowIndex, 5) = Util.checkDBNullValue(dgvStaff("Jyu1", i).Value)
+            '住所2
+            dataArray(arrayRowIndex + 1, 5) = Util.checkDBNullValue(dgvStaff("Jyu2", i).Value)
+            '年金No.
+            dataArray(arrayRowIndex, 6) = Util.checkDBNullValue(dgvStaff("NNo", i).Value)
+            '　　取得日
+            dataArray(arrayRowIndex, 7) = Util.checkDBNullValue(dgvStaff("NYmd1", i).FormattedValue)
+            '　　喪失日
+            dataArray(arrayRowIndex + 1, 7) = Util.checkDBNullValue(dgvStaff("NYmd2", i).FormattedValue)
+            '雇用保険No.
+            dataArray(arrayRowIndex, 8) = Util.checkDBNullValue(dgvStaff("KNo", i).Value)
+            '　　取得日
+            dataArray(arrayRowIndex, 9) = Util.checkDBNullValue(dgvStaff("KYmd1", i).FormattedValue)
+            '　　喪失日
+            dataArray(arrayRowIndex + 1, 9) = Util.checkDBNullValue(dgvStaff("KYmd2", i).FormattedValue)
+            '免許No.
+            dataArray(arrayRowIndex, 10) = Util.checkDBNullValue(dgvStaff("MNo", i).Value)
+            '　　取得日
+            dataArray(arrayRowIndex, 11) = Util.checkDBNullValue(dgvStaff("MYmd", i).FormattedValue)
+            '　　発行者
+            dataArray(arrayRowIndex + 1, 11) = Util.checkDBNullValue(dgvStaff("MSya", i).Value)
+
+            arrayRowIndex += 2
+        Next
+        dataList.Add(dataArray.Clone())
+
+        'エクセル
+        Dim objExcel As Excel.Application = CreateObject("Excel.Application")
+        Dim objWorkBooks As Excel.Workbooks = objExcel.Workbooks
+        Dim objWorkBook As Excel.Workbook = objWorkBooks.Open(TopForm.excelFilePass)
+        Dim oSheet As Excel.Worksheet = objWorkBook.Worksheets("職員名簿改")
+        objExcel.Calculation = Excel.XlCalculation.xlCalculationManual
+        objExcel.ScreenUpdating = False
+
+        '現在日付
+        Dim nowYmd As String = DateTime.Now.ToString("yyyy/MM/dd")
+        oSheet.Range("D2").Value = Util.convADStrToWarekiStr(nowYmd) & "　現在"
+
+        '必要枚数コピペ
+        For i As Integer = 0 To dataList.Count - 2
+            Dim xlPasteRange As Excel.Range = oSheet.Range("A" & (47 + (46 * i))) 'ペースト先
+            oSheet.Rows("1:46").copy(xlPasteRange)
+            oSheet.HPageBreaks.Add(oSheet.Range("A" & (47 + (46 * i)))) '改ページ
+        Next
+
+        'データ貼り付け
+        For i As Integer = 0 To dataList.Count - 1
+            oSheet.Range("M" & (2 + 46 * i)).Value = (i + 1) & " 頁"
+            oSheet.Range("B" & (5 + 46 * i), "M" & (44 + 46 * i)).Value = dataList(i)
+        Next
+
+        objExcel.Calculation = Excel.XlCalculation.xlCalculationAutomatic
+        objExcel.ScreenUpdating = True
+
+        '変更保存確認ダイアログ非表示
+        objExcel.DisplayAlerts = False
+
+        '印刷
+        If rbtnPrint.Checked = True Then
+            oSheet.PrintOut()
+        ElseIf rbtnPreview.Checked = True Then
+            objExcel.Visible = True
+            oSheet.PrintPreview(1)
+        End If
+
+        ' EXCEL解放
+        objExcel.Quit()
+        Marshal.ReleaseComObject(objWorkBook)
+        Marshal.ReleaseComObject(objExcel)
+        oSheet = Nothing
+        objWorkBook = Nothing
+        objExcel = Nothing
     End Sub
 End Class

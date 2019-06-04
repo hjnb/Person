@@ -76,6 +76,7 @@ Partial Class TopForm
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.rbtnPrint = New System.Windows.Forms.RadioButton()
         Me.rbtnPreview = New System.Windows.Forms.RadioButton()
+        Me.dspLabel = New System.Windows.Forms.Label()
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -317,14 +318,14 @@ Partial Class TopForm
         Me.sectListBox.BackColor = System.Drawing.SystemColors.Control
         Me.sectListBox.FormattingEnabled = True
         Me.sectListBox.ItemHeight = 12
-        Me.sectListBox.Location = New System.Drawing.Point(436, 290)
+        Me.sectListBox.Location = New System.Drawing.Point(439, 290)
         Me.sectListBox.Name = "sectListBox"
-        Me.sectListBox.Size = New System.Drawing.Size(88, 40)
+        Me.sectListBox.Size = New System.Drawing.Size(100, 40)
         Me.sectListBox.TabIndex = 24
         '
         'btnDown
         '
-        Me.btnDown.Location = New System.Drawing.Point(532, 304)
+        Me.btnDown.Location = New System.Drawing.Point(542, 304)
         Me.btnDown.Name = "btnDown"
         Me.btnDown.Size = New System.Drawing.Size(61, 23)
         Me.btnDown.TabIndex = 25
@@ -333,7 +334,7 @@ Partial Class TopForm
         '
         'btnUp
         '
-        Me.btnUp.Location = New System.Drawing.Point(592, 304)
+        Me.btnUp.Location = New System.Drawing.Point(602, 304)
         Me.btnUp.Name = "btnUp"
         Me.btnUp.Size = New System.Drawing.Size(61, 23)
         Me.btnUp.TabIndex = 26
@@ -342,7 +343,7 @@ Partial Class TopForm
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(652, 304)
+        Me.btnPrint.Location = New System.Drawing.Point(662, 304)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(61, 23)
         Me.btnPrint.TabIndex = 27
@@ -537,7 +538,7 @@ Partial Class TopForm
         '
         Me.imageBox.Location = New System.Drawing.Point(127, 12)
         Me.imageBox.Name = "imageBox"
-        Me.imageBox.Size = New System.Drawing.Size(310, 245)
+        Me.imageBox.Size = New System.Drawing.Size(310, 315)
         Me.imageBox.TabIndex = 51
         Me.imageBox.TabStop = False
         '
@@ -572,13 +573,22 @@ Partial Class TopForm
         Me.rbtnPreview.Text = "ﾌﾟﾚﾋﾞｭｰ"
         Me.rbtnPreview.UseVisualStyleBackColor = True
         '
+        'dspLabel
+        '
+        Me.dspLabel.AutoSize = True
+        Me.dspLabel.Location = New System.Drawing.Point(446, 266)
+        Me.dspLabel.Name = "dspLabel"
+        Me.dspLabel.Size = New System.Drawing.Size(0, 12)
+        Me.dspLabel.TabIndex = 53
+        Me.dspLabel.Visible = False
+        '
         'TopForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(830, 337)
+        Me.Controls.Add(Me.dspLabel)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.imageBox)
         Me.Controls.Add(Me.taiLabel)
         Me.Controls.Add(Me.zaiLabel)
         Me.Controls.Add(Me.mSyaLabel)
@@ -629,6 +639,7 @@ Partial Class TopForm
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.namListBox)
+        Me.Controls.Add(Me.imageBox)
         Me.Name = "TopForm"
         Me.Text = "Person"
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -692,5 +703,6 @@ Partial Class TopForm
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents rbtnPrint As System.Windows.Forms.RadioButton
     Friend WithEvents rbtnPreview As System.Windows.Forms.RadioButton
+    Friend WithEvents dspLabel As System.Windows.Forms.Label
 
 End Class

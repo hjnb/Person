@@ -324,11 +324,12 @@ Partial Class メンテナンス画面
         Me.birthBox.EraLabelText = "R01"
         Me.birthBox.EraText = ""
         Me.birthBox.Location = New System.Drawing.Point(79, 87)
-        Me.birthBox.MonthLabelText = "05"
+        Me.birthBox.MonthLabelText = "06"
         Me.birthBox.MonthText = ""
         Me.birthBox.Name = "birthBox"
         Me.birthBox.Size = New System.Drawing.Size(86, 20)
         Me.birthBox.TabIndex = 36
+        Me.birthBox.textReadOnly = False
         '
         'sectBox
         '
@@ -346,11 +347,12 @@ Partial Class メンテナンス画面
         Me.ymd1Box.EraLabelText = "R01"
         Me.ymd1Box.EraText = ""
         Me.ymd1Box.Location = New System.Drawing.Point(79, 138)
-        Me.ymd1Box.MonthLabelText = "05"
+        Me.ymd1Box.MonthLabelText = "06"
         Me.ymd1Box.MonthText = ""
         Me.ymd1Box.Name = "ymd1Box"
         Me.ymd1Box.Size = New System.Drawing.Size(86, 20)
         Me.ymd1Box.TabIndex = 38
+        Me.ymd1Box.textReadOnly = False
         '
         'ymd2Box
         '
@@ -359,11 +361,12 @@ Partial Class メンテナンス画面
         Me.ymd2Box.EraLabelText = "R01"
         Me.ymd2Box.EraText = ""
         Me.ymd2Box.Location = New System.Drawing.Point(79, 164)
-        Me.ymd2Box.MonthLabelText = "05"
+        Me.ymd2Box.MonthLabelText = "06"
         Me.ymd2Box.MonthText = ""
         Me.ymd2Box.Name = "ymd2Box"
         Me.ymd2Box.Size = New System.Drawing.Size(86, 20)
         Me.ymd2Box.TabIndex = 39
+        Me.ymd2Box.textReadOnly = False
         '
         'bikoBox
         '
@@ -426,11 +429,12 @@ Partial Class メンテナンス画面
         Me.nYmd1Box.EraLabelText = "R01"
         Me.nYmd1Box.EraText = ""
         Me.nYmd1Box.Location = New System.Drawing.Point(404, 62)
-        Me.nYmd1Box.MonthLabelText = "05"
+        Me.nYmd1Box.MonthLabelText = "06"
         Me.nYmd1Box.MonthText = ""
         Me.nYmd1Box.Name = "nYmd1Box"
         Me.nYmd1Box.Size = New System.Drawing.Size(86, 20)
         Me.nYmd1Box.TabIndex = 46
+        Me.nYmd1Box.textReadOnly = False
         '
         'nYmd2Box
         '
@@ -439,11 +443,12 @@ Partial Class メンテナンス画面
         Me.nYmd2Box.EraLabelText = "R01"
         Me.nYmd2Box.EraText = ""
         Me.nYmd2Box.Location = New System.Drawing.Point(404, 86)
-        Me.nYmd2Box.MonthLabelText = "05"
+        Me.nYmd2Box.MonthLabelText = "06"
         Me.nYmd2Box.MonthText = ""
         Me.nYmd2Box.Name = "nYmd2Box"
         Me.nYmd2Box.Size = New System.Drawing.Size(86, 20)
         Me.nYmd2Box.TabIndex = 47
+        Me.nYmd2Box.textReadOnly = False
         '
         'kNoBox
         '
@@ -461,11 +466,12 @@ Partial Class メンテナンス画面
         Me.kYmd1Box.EraLabelText = "R01"
         Me.kYmd1Box.EraText = ""
         Me.kYmd1Box.Location = New System.Drawing.Point(404, 138)
-        Me.kYmd1Box.MonthLabelText = "05"
+        Me.kYmd1Box.MonthLabelText = "06"
         Me.kYmd1Box.MonthText = ""
         Me.kYmd1Box.Name = "kYmd1Box"
         Me.kYmd1Box.Size = New System.Drawing.Size(86, 20)
         Me.kYmd1Box.TabIndex = 49
+        Me.kYmd1Box.textReadOnly = False
         '
         'kYmd2Box
         '
@@ -474,11 +480,12 @@ Partial Class メンテナンス画面
         Me.kYmd2Box.EraLabelText = "R01"
         Me.kYmd2Box.EraText = ""
         Me.kYmd2Box.Location = New System.Drawing.Point(404, 164)
-        Me.kYmd2Box.MonthLabelText = "05"
+        Me.kYmd2Box.MonthLabelText = "06"
         Me.kYmd2Box.MonthText = ""
         Me.kYmd2Box.Name = "kYmd2Box"
         Me.kYmd2Box.Size = New System.Drawing.Size(86, 20)
         Me.kYmd2Box.TabIndex = 50
+        Me.kYmd2Box.textReadOnly = False
         '
         'mNoBox
         '
@@ -496,11 +503,12 @@ Partial Class メンテナンス画面
         Me.mYmdBox.EraLabelText = "R01"
         Me.mYmdBox.EraText = ""
         Me.mYmdBox.Location = New System.Drawing.Point(404, 217)
-        Me.mYmdBox.MonthLabelText = "05"
+        Me.mYmdBox.MonthLabelText = "06"
         Me.mYmdBox.MonthText = ""
         Me.mYmdBox.Name = "mYmdBox"
         Me.mYmdBox.Size = New System.Drawing.Size(86, 20)
         Me.mYmdBox.TabIndex = 52
+        Me.mYmdBox.textReadOnly = False
         '
         'mSyaBox
         '
@@ -518,7 +526,7 @@ Partial Class メンテナンス画面
         Me.sectListBox.ItemHeight = 12
         Me.sectListBox.Location = New System.Drawing.Point(216, 13)
         Me.sectListBox.Name = "sectListBox"
-        Me.sectListBox.Size = New System.Drawing.Size(93, 148)
+        Me.sectListBox.Size = New System.Drawing.Size(104, 148)
         Me.sectListBox.TabIndex = 56
         Me.sectListBox.Visible = False
         '
@@ -562,7 +570,7 @@ Partial Class メンテナンス画面
         'rbtnPreview
         '
         Me.rbtnPreview.AutoSize = True
-        Me.rbtnPreview.Location = New System.Drawing.Point(816, 247)
+        Me.rbtnPreview.Location = New System.Drawing.Point(816, 260)
         Me.rbtnPreview.Name = "rbtnPreview"
         Me.rbtnPreview.Size = New System.Drawing.Size(63, 16)
         Me.rbtnPreview.TabIndex = 59
@@ -573,7 +581,7 @@ Partial Class メンテナンス画面
         'rbtnPrint
         '
         Me.rbtnPrint.AutoSize = True
-        Me.rbtnPrint.Location = New System.Drawing.Point(816, 272)
+        Me.rbtnPrint.Location = New System.Drawing.Point(816, 285)
         Me.rbtnPrint.Name = "rbtnPrint"
         Me.rbtnPrint.Size = New System.Drawing.Size(47, 16)
         Me.rbtnPrint.TabIndex = 60
@@ -594,7 +602,7 @@ Partial Class メンテナンス画面
         '
         Me.imageBox.Location = New System.Drawing.Point(603, 40)
         Me.imageBox.Name = "imageBox"
-        Me.imageBox.Size = New System.Drawing.Size(190, 140)
+        Me.imageBox.Size = New System.Drawing.Size(190, 190)
         Me.imageBox.TabIndex = 62
         Me.imageBox.TabStop = False
         '

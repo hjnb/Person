@@ -134,6 +134,7 @@ Public Class TopForm
         mNoLabel.Text = ""
         mYmdLabel.Text = ""
         mSyaLabel.Text = ""
+        dspLabel.Text = ""
     End Sub
 
     ''' <summary>
@@ -194,6 +195,7 @@ Public Class TopForm
             namLabel.Text = nam
             '画像
             Dim dsp As String = Util.checkDBNullValue(rs.Fields("Dsp").Value)
+            dspLabel.Text = dsp
             Dim imageFilePath As String = staffDirPath & "\" & nam & ".JPG" '画像ファイルパス
             If System.IO.File.Exists(imageFilePath) Then
                 '描画先とするImageオブジェクトを作成する
@@ -208,10 +210,8 @@ Public Class TopForm
                 '画像を縮小して描画する
                 If dsp = "1" Then
                     g.DrawImage(image, 0, 0, 310, 245)
-                    imageBox.Size = New Size(310, 245)
                 ElseIf dsp = "2" Then
                     g.DrawImage(image, 0, 0, 240, 315)
-                    imageBox.Size = New Size(240, 315)
                 End If
 
                 'BitmapとGraphicsオブジェクトを破棄
@@ -409,12 +409,12 @@ Public Class TopForm
         '画像ファイル
         If System.IO.File.Exists(imageFilePath) Then
             Dim cell As Excel.Range = DirectCast(oSheet.Cells(3, "B"), Excel.Range)
-            If imageBox.Width = 310 Then
+            If dspLabel.Text = "1" Then
                 '横画像
                 xlShapes.AddPicture(imageFilePath, False, True, cell.Left, cell.Top, 180, 140)
             Else
                 '縦画像
-                xlShapes.AddPicture(imageFilePath, False, True, cell.Left, cell.Top, 140, 170)
+                xlShapes.AddPicture(imageFilePath, False, True, cell.Left, cell.Top, 140, 180)
             End If
         End If
 
