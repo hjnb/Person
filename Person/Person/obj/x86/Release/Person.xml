@@ -108,6 +108,13 @@ Person
 	<param name="sender"></param>
 	<param name="e"></param>
 	<remarks></remarks>
+</member><member name="M:Person.メンテナンス画面.sectBox_TextChanged(System.Object,System.EventArgs)">
+	<summary>
+ 職種テキストボックス値変更イベント
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
 </member><member name="P:Person.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.

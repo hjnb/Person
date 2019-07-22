@@ -74,15 +74,20 @@ Partial Class メンテナンス画面
         Me.dgvStaff = New System.Windows.Forms.DataGridView()
         Me.imageBox = New System.Windows.Forms.PictureBox()
         Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.jyoPanel = New System.Windows.Forms.Panel()
+        Me.chkJyo = New System.Windows.Forms.CheckBox()
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.jyoPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.ForeColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(19, 298)
+        Me.Label10.Location = New System.Drawing.Point(19, 316)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(35, 12)
         Me.Label10.TabIndex = 22
@@ -92,7 +97,7 @@ Partial Class メンテナンス画面
         '
         Me.Label11.AutoSize = True
         Me.Label11.ForeColor = System.Drawing.Color.Black
-        Me.Label11.Location = New System.Drawing.Point(19, 272)
+        Me.Label11.Location = New System.Drawing.Point(19, 290)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(35, 12)
         Me.Label11.TabIndex = 21
@@ -102,7 +107,7 @@ Partial Class メンテナンス画面
         '
         Me.Label12.AutoSize = True
         Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(19, 247)
+        Me.Label12.Location = New System.Drawing.Point(19, 265)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(35, 12)
         Me.Label12.TabIndex = 20
@@ -112,7 +117,7 @@ Partial Class メンテナンス画面
         '
         Me.Label5.AutoSize = True
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(19, 221)
+        Me.Label5.Location = New System.Drawing.Point(19, 239)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(35, 12)
         Me.Label5.TabIndex = 19
@@ -122,7 +127,7 @@ Partial Class メンテナンス画面
         '
         Me.Label6.AutoSize = True
         Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(19, 195)
+        Me.Label6.Location = New System.Drawing.Point(19, 213)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(29, 12)
         Me.Label6.TabIndex = 18
@@ -132,7 +137,7 @@ Partial Class メンテナンス画面
         '
         Me.Label7.AutoSize = True
         Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(19, 169)
+        Me.Label7.Location = New System.Drawing.Point(19, 187)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(41, 12)
         Me.Label7.TabIndex = 17
@@ -142,7 +147,7 @@ Partial Class メンテナンス画面
         '
         Me.Label8.AutoSize = True
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(19, 144)
+        Me.Label8.Location = New System.Drawing.Point(19, 162)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(41, 12)
         Me.Label8.TabIndex = 16
@@ -324,7 +329,7 @@ Partial Class メンテナンス画面
         Me.birthBox.EraLabelText = "R01"
         Me.birthBox.EraText = ""
         Me.birthBox.Location = New System.Drawing.Point(79, 87)
-        Me.birthBox.MonthLabelText = "06"
+        Me.birthBox.MonthLabelText = "07"
         Me.birthBox.MonthText = ""
         Me.birthBox.Name = "birthBox"
         Me.birthBox.Size = New System.Drawing.Size(86, 20)
@@ -346,8 +351,8 @@ Partial Class メンテナンス画面
         Me.ymd1Box.DateText = ""
         Me.ymd1Box.EraLabelText = "R01"
         Me.ymd1Box.EraText = ""
-        Me.ymd1Box.Location = New System.Drawing.Point(79, 138)
-        Me.ymd1Box.MonthLabelText = "06"
+        Me.ymd1Box.Location = New System.Drawing.Point(79, 156)
+        Me.ymd1Box.MonthLabelText = "07"
         Me.ymd1Box.MonthText = ""
         Me.ymd1Box.Name = "ymd1Box"
         Me.ymd1Box.Size = New System.Drawing.Size(86, 20)
@@ -360,8 +365,8 @@ Partial Class メンテナンス画面
         Me.ymd2Box.DateText = ""
         Me.ymd2Box.EraLabelText = "R01"
         Me.ymd2Box.EraText = ""
-        Me.ymd2Box.Location = New System.Drawing.Point(79, 164)
-        Me.ymd2Box.MonthLabelText = "06"
+        Me.ymd2Box.Location = New System.Drawing.Point(79, 182)
+        Me.ymd2Box.MonthLabelText = "07"
         Me.ymd2Box.MonthText = ""
         Me.ymd2Box.Name = "ymd2Box"
         Me.ymd2Box.Size = New System.Drawing.Size(86, 20)
@@ -372,7 +377,7 @@ Partial Class メンテナンス画面
         '
         Me.bikoBox.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.bikoBox.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.bikoBox.Location = New System.Drawing.Point(80, 191)
+        Me.bikoBox.Location = New System.Drawing.Point(80, 209)
         Me.bikoBox.Name = "bikoBox"
         Me.bikoBox.Size = New System.Drawing.Size(124, 19)
         Me.bikoBox.TabIndex = 40
@@ -381,7 +386,7 @@ Partial Class メンテナンス画面
         '
         Me.tel1Box.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.tel1Box.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.tel1Box.Location = New System.Drawing.Point(80, 217)
+        Me.tel1Box.Location = New System.Drawing.Point(80, 235)
         Me.tel1Box.Name = "tel1Box"
         Me.tel1Box.Size = New System.Drawing.Size(124, 19)
         Me.tel1Box.TabIndex = 41
@@ -390,7 +395,7 @@ Partial Class メンテナンス画面
         '
         Me.tel2Box.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.tel2Box.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.tel2Box.Location = New System.Drawing.Point(80, 243)
+        Me.tel2Box.Location = New System.Drawing.Point(80, 261)
         Me.tel2Box.Name = "tel2Box"
         Me.tel2Box.Size = New System.Drawing.Size(124, 19)
         Me.tel2Box.TabIndex = 42
@@ -399,7 +404,7 @@ Partial Class メンテナンス画面
         '
         Me.jyu1Box.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.jyu1Box.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.jyu1Box.Location = New System.Drawing.Point(80, 268)
+        Me.jyu1Box.Location = New System.Drawing.Point(80, 286)
         Me.jyu1Box.Name = "jyu1Box"
         Me.jyu1Box.Size = New System.Drawing.Size(201, 19)
         Me.jyu1Box.TabIndex = 43
@@ -408,7 +413,7 @@ Partial Class メンテナンス画面
         '
         Me.jyu2Box.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.jyu2Box.ImeMode = System.Windows.Forms.ImeMode.Hiragana
-        Me.jyu2Box.Location = New System.Drawing.Point(80, 293)
+        Me.jyu2Box.Location = New System.Drawing.Point(80, 311)
         Me.jyu2Box.Name = "jyu2Box"
         Me.jyu2Box.Size = New System.Drawing.Size(201, 19)
         Me.jyu2Box.TabIndex = 44
@@ -429,7 +434,7 @@ Partial Class メンテナンス画面
         Me.nYmd1Box.EraLabelText = "R01"
         Me.nYmd1Box.EraText = ""
         Me.nYmd1Box.Location = New System.Drawing.Point(404, 62)
-        Me.nYmd1Box.MonthLabelText = "06"
+        Me.nYmd1Box.MonthLabelText = "07"
         Me.nYmd1Box.MonthText = ""
         Me.nYmd1Box.Name = "nYmd1Box"
         Me.nYmd1Box.Size = New System.Drawing.Size(86, 20)
@@ -443,7 +448,7 @@ Partial Class メンテナンス画面
         Me.nYmd2Box.EraLabelText = "R01"
         Me.nYmd2Box.EraText = ""
         Me.nYmd2Box.Location = New System.Drawing.Point(404, 86)
-        Me.nYmd2Box.MonthLabelText = "06"
+        Me.nYmd2Box.MonthLabelText = "07"
         Me.nYmd2Box.MonthText = ""
         Me.nYmd2Box.Name = "nYmd2Box"
         Me.nYmd2Box.Size = New System.Drawing.Size(86, 20)
@@ -466,7 +471,7 @@ Partial Class メンテナンス画面
         Me.kYmd1Box.EraLabelText = "R01"
         Me.kYmd1Box.EraText = ""
         Me.kYmd1Box.Location = New System.Drawing.Point(404, 138)
-        Me.kYmd1Box.MonthLabelText = "06"
+        Me.kYmd1Box.MonthLabelText = "07"
         Me.kYmd1Box.MonthText = ""
         Me.kYmd1Box.Name = "kYmd1Box"
         Me.kYmd1Box.Size = New System.Drawing.Size(86, 20)
@@ -480,7 +485,7 @@ Partial Class メンテナンス画面
         Me.kYmd2Box.EraLabelText = "R01"
         Me.kYmd2Box.EraText = ""
         Me.kYmd2Box.Location = New System.Drawing.Point(404, 164)
-        Me.kYmd2Box.MonthLabelText = "06"
+        Me.kYmd2Box.MonthLabelText = "07"
         Me.kYmd2Box.MonthText = ""
         Me.kYmd2Box.Name = "kYmd2Box"
         Me.kYmd2Box.Size = New System.Drawing.Size(86, 20)
@@ -503,7 +508,7 @@ Partial Class メンテナンス画面
         Me.mYmdBox.EraLabelText = "R01"
         Me.mYmdBox.EraText = ""
         Me.mYmdBox.Location = New System.Drawing.Point(404, 217)
-        Me.mYmdBox.MonthLabelText = "06"
+        Me.mYmdBox.MonthLabelText = "07"
         Me.mYmdBox.MonthText = ""
         Me.mYmdBox.Name = "mYmdBox"
         Me.mYmdBox.Size = New System.Drawing.Size(86, 20)
@@ -534,7 +539,7 @@ Partial Class メンテナンス画面
         '
         Me.Label17.AutoSize = True
         Me.Label17.ForeColor = System.Drawing.Color.Blue
-        Me.Label17.Location = New System.Drawing.Point(348, 315)
+        Me.Label17.Location = New System.Drawing.Point(348, 319)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(168, 12)
         Me.Label17.TabIndex = 55
@@ -592,10 +597,10 @@ Partial Class メンテナンス画面
         'dgvStaff
         '
         Me.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvStaff.Location = New System.Drawing.Point(21, 331)
+        Me.dgvStaff.Location = New System.Drawing.Point(21, 338)
         Me.dgvStaff.Name = "dgvStaff"
         Me.dgvStaff.RowTemplate.Height = 21
-        Me.dgvStaff.Size = New System.Drawing.Size(944, 362)
+        Me.dgvStaff.Size = New System.Drawing.Size(999, 362)
         Me.dgvStaff.TabIndex = 61
         '
         'imageBox
@@ -615,11 +620,51 @@ Partial Class メンテナンス画面
         Me.Label23.TabIndex = 63
         Me.Label23.Text = "1：横　2：縦"
         '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(30, 4)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(9, 12)
+        Me.Label24.TabIndex = 64
+        Me.Label24.Text = "("
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(112, 4)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(9, 12)
+        Me.Label25.TabIndex = 65
+        Me.Label25.Text = ")"
+        '
+        'jyoPanel
+        '
+        Me.jyoPanel.Controls.Add(Me.chkJyo)
+        Me.jyoPanel.Controls.Add(Me.Label25)
+        Me.jyoPanel.Controls.Add(Me.Label24)
+        Me.jyoPanel.Location = New System.Drawing.Point(80, 135)
+        Me.jyoPanel.Name = "jyoPanel"
+        Me.jyoPanel.Size = New System.Drawing.Size(124, 20)
+        Me.jyoPanel.TabIndex = 66
+        Me.jyoPanel.Visible = False
+        '
+        'chkJyo
+        '
+        Me.chkJyo.AutoSize = True
+        Me.chkJyo.Location = New System.Drawing.Point(42, 3)
+        Me.chkJyo.Name = "chkJyo"
+        Me.chkJyo.Size = New System.Drawing.Size(72, 16)
+        Me.chkJyo.TabIndex = 67
+        Me.chkJyo.Text = "看護助手"
+        Me.chkJyo.UseVisualStyleBackColor = True
+        '
         'メンテナンス画面
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(982, 710)
+        Me.ClientSize = New System.Drawing.Size(1060, 710)
+        Me.Controls.Add(Me.jyoPanel)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.imageBox)
         Me.Controls.Add(Me.dgvStaff)
@@ -676,6 +721,8 @@ Partial Class メンテナンス画面
         Me.Text = "メンテナンス画面"
         CType(Me.dgvStaff, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.jyoPanel.ResumeLayout(False)
+        Me.jyoPanel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -732,4 +779,8 @@ Partial Class メンテナンス画面
     Friend WithEvents dgvStaff As System.Windows.Forms.DataGridView
     Friend WithEvents imageBox As System.Windows.Forms.PictureBox
     Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents jyoPanel As System.Windows.Forms.Panel
+    Friend WithEvents chkJyo As System.Windows.Forms.CheckBox
 End Class

@@ -166,11 +166,12 @@ Public Class メンテナンス画面
         'クリア
         dgvStaff.Columns.Clear()
         clearInput()
+        sectListBox.Visible = False
 
         Dim cnn As New ADODB.Connection
         cnn.Open(TopForm.DB_Person)
         Dim rs As New ADODB.Recordset
-        Dim sql As String = "select Nam, Kana, Dsp, Birth, Int((Format(NOW(),'YYYYMMDD')-Format(Birth, 'YYYYMMDD'))/10000) as Age, Sect, Ymd1, Ymd2, Text, Tel1, Tel2, Jyu1, Jyu2, NNo, NYmd1, NYmd2, KNo, KYmd1, KYmd2, MNo, MYmd, MSya from Staff order by Kana"
+        Dim sql As String = "select Nam, Kana, Dsp, Birth, Int((Format(NOW(),'YYYYMMDD')-Format(Birth, 'YYYYMMDD'))/10000) as Age, Sect, NSJyo, Ymd1, Ymd2, Text, Tel1, Tel2, Jyu1, Jyu2, NNo, NYmd1, NYmd2, KNo, KYmd1, KYmd2, MNo, MYmd, MSya from Staff order by Kana"
         rs.Open(sql, cnn, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockReadOnly)
         Dim da As OleDbDataAdapter = New OleDbDataAdapter()
         Dim ds As DataSet = New DataSet()
@@ -200,6 +201,9 @@ Public Class メンテナンス画面
         '表示
         dgvStaff.DataSource = dt
         cnn.Close()
+        If Not IsNothing(dgvStaff.CurrentRow) Then
+            dgvStaff.CurrentRow.Selected = False
+        End If
 
         '幅設定等
         With dgvStaff
@@ -247,6 +251,13 @@ Public Class メンテナンス画面
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                 .SortMode = DataGridViewColumnSortMode.NotSortable
                 .Width = 80
+            End With
+            With .Columns("NSJyo")
+                .HeaderText = "看護助手"
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                .SortMode = DataGridViewColumnSortMode.NotSortable
+                .Width = 55
+                .HeaderCell.Style.Font = New Font("ＭＳ Ｐゴシック", 7)
             End With
             With .Columns("Ymd1")
                 .HeaderText = "入職日"
@@ -405,6 +416,7 @@ Public Class メンテナンス画面
             Dim mno As String = Util.checkDBNullValue(dgvStaff("MNo", e.RowIndex).Value)
             Dim mymd As String = Util.checkDBNullValue(dgvStaff("MYmd", e.RowIndex).Value)
             Dim msya As String = Util.checkDBNullValue(dgvStaff("MSya", e.RowIndex).Value)
+            Dim nsjyo As Integer = dgvStaff("NSJyo", e.RowIndex).Value
 
             '各ボックスへセット
             namBox.Text = nam
@@ -428,6 +440,11 @@ Public Class メンテナンス画面
             mNoBox.Text = mno
             mYmdBox.setADStr(mymd)
             mSyaBox.Text = msya
+            If nsjyo = 1 Then
+                chkJyo.Checked = True
+            Else
+                chkJyo.Checked = False
+            End If
 
             '画像
             Dim imageFilePath As String = TopForm.staffDirPath & "\" & nam & ".JPG" '画像ファイルパス
@@ -583,6 +600,8 @@ Public Class メンテナンス画面
             sectBox.Focus()
             Return
         End If
+        '看護助手
+        Dim nsjyo As Integer = If(chkJyo.Checked, 1, 0)
         '入職日
         Dim ymd1 As String = ymd1Box.getADStr()
         If ymd1 = "" Then
@@ -636,6 +655,7 @@ Public Class メンテナンス画面
         rs.Fields("Dsp").Value = dsp
         rs.Fields("Birth").Value = birth
         rs.Fields("Sect").Value = sect
+        rs.Fields("NSJyo").Value = nsjyo
         rs.Fields("Ymd1").Value = ymd1
         rs.Fields("Ymd2").Value = ymd2
         rs.Fields("Text").Value = text
@@ -819,5 +839,19 @@ Public Class メンテナンス画面
         oSheet = Nothing
         objWorkBook = Nothing
         objExcel = Nothing
+    End Sub
+
+    ''' <summary>
+    ''' 職種テキストボックス値変更イベント
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub sectBox_TextChanged(sender As Object, e As System.EventArgs) Handles sectBox.TextChanged
+        If sectBox.Text = "助手" Then
+            jyoPanel.Visible = True
+        Else
+            jyoPanel.Visible = False
+        End If
     End Sub
 End Class
